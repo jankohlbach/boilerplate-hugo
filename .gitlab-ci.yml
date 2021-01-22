@@ -1,0 +1,25 @@
+stages:
+  - setup
+  - pages
+
+setup:
+  stage: setup
+  image: "node:alpine"
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules
+
+pages:
+  stage: pages
+  image: monachus/hugo
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - hugo
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <main>
+    {{ range .Params.Components }}
+      {{ partial (printf "%s.html" .type) (dict .type .) }}
+    {{ end }}
+  </main>
+{{ end }}

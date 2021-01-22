@@ -1,0 +1,31 @@
+{
+  "name": "boilerplate-hugo",
+  "version": "1.0.0",
+  "scripts": {
+    "backend-dev": "parcel watch netlify-cms/main.js --cache-dir resources/.parcel-cache --out-dir static/admin --no-cache --no-source-maps",
+    "backend-build": "parcel build netlify-cms/main.js --cache-dir resources/.parcel-cache --out-dir static/admin --no-cache --no-source-maps"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "html-react-parser": "^1.2.1",
+    "netlify-cms-app": "^2.14.14",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "remarkable": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "parcel": "^1.12.4",
+    "stylelint": "^13.9.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-declaration-strict-value": "^1.7.7",
+    "stylelint-scss": "^3.18.0"
+  }
+}

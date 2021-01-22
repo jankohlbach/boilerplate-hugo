@@ -1,0 +1,9 @@
+baseURL = "https://test.com"
+relativeURLs = true
+languageCode = "en"
+title = "boilerplate-hugo"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  themeColor = "#000000"
+  description = "lorem ipsum"

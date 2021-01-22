@@ -1,0 +1,20 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "settings": {
+    "import/core-modules": ["react"]
+  },
+  "rules": {
+    "no-param-reassign": ["warn"],
+    "block-spacing": ["error", "never"],
+    "object-curly-spacing": ["error", "never"],
+    "no-unused-expressions": ["error", {"allowTernary": true}],
+    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}]
+  }
+}

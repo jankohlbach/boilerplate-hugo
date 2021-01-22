@@ -1,0 +1,82 @@
+backend:
+  # name: gitlab
+  name: git-gateway
+  # repo: [REPO_NAME]
+  branch: main
+  auth_type: implicit
+  # app_id: [APP_ID]
+
+# terminal: npx netlify-cms-proxy-server
+local_backend: true
+
+site_url: https://test.com
+locale: en
+
+media_folder: static/uploads
+public_folder: /uploads
+
+collections:
+  - label: Homepage
+    name: homepage
+    files:
+      - label: Homepage
+        name: _index
+        file: content/_index.md
+        fields:
+          - {label: Title, name: title, widget: hidden}
+          - label: Elements
+            label_singular: Element
+            name: components
+            widget: list
+            collapsed: true
+            types:
+              - label: Text
+                name: text
+                widget: object
+                fields:
+                  - {label: Text, name: content, widget: markdown}
+              - label: Image
+                name: image
+                widget: object
+                fields:
+                  - {label: Image, name: src, widget: image}
+                  - {label: Image-alt, name: alt, widget: string}
+  - label: Pages
+    name: pages
+    label_singular: Page
+    folder: content
+    preview_path: "{{fields.slug}}"
+    filter: {field: pageType, value: subpage}
+    create: true
+    fields:
+      - {label: Titel, name: title, widget: string, hint: Wird nur im Browser oben im Tab angezeigt.}
+      - label: Elements
+        label_singular: Element
+        name: components
+        widget: list
+        collapsed: true
+        types:
+          - label: Text
+            name: text
+            widget: object
+            fields:
+              - {label: Text, name: content, widget: markdown}
+          - label: Image
+            name: image
+            widget: object
+            fields:
+              - {label: Image, name: src, widget: image}
+              - {label: Image-alt, name: alt, widget: string}
+  - label: Settings
+    name: settings
+    editor:
+      preview: false
+    files:
+      - label: Site-Settings
+        name: general
+        file: data/settings.json
+        fields:
+          - {label: Site-Title, name: siteTitle, widget: string}
+          - {label: Site-Description, name: siteDescription, widget: text}
+          - {label: Preview-Image, name: openGraph, widget: image}
+          - {label: Indexable?, name: indexable, widget: boolean, default: true, required: false}

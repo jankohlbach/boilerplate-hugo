@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {{ if not site.Data.settings.indexable }}
+    <meta name="robots" content="noindex,nofollow">
+  {{ end }}
+  <meta name="theme-color" content="{{ site.Params.themeColor }}">
+  <meta name="description" content="{{ site.Data.settings.siteDescription }}">
+  <meta property="og:title" content="{{ site.Data.settings.siteTitle }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.BaseURL }}">
+  <meta property="og:description" content="{{ site.Data.settings.siteDescription }}">
+  <meta property="og:image" content="{{ site.BaseURL }}{{ site.Data.settings.openGraph }}">
+  <title>{{ site.Data.settings.siteTitle }}{{ with .Title }} - {{ . }} {{ end }}</title>
+  <link rel="icon" href="/favicon/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+  {{ $scssOptions := (dict "transpiler" "dartsass" "targetPath" "/main.css" "outputStyle" "compressed") }}
+  {{ $scss := resources.Get "scss/main.scss" | resources.ToCSS $scssOptions }}
+  <link rel="stylesheet" href="{{ $scss.Permalink }}">
+  {{ $js := resources.Get "js/main.js" | js.Build "main.js" }}
+  <script src="{{ $js.Permalink }}" defer></script>
+</head>
+<body>
+
+  <div>
+
+      {{ partial "header.html" (dict "header" .) }}
+
+      {{ block "main" . }}
+
+      {{ end }}
+
+      {{ partial "footer.html" (dict "footer" .) }}
+
+  </div>
+
+</body>
+</html>
