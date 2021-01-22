@@ -10,6 +10,8 @@
 * the boilerplate is using the `@use-syntax` of scss which is the recommended way of doing things, however, hugo was using deprecated libsass (not supporting `@use`) and is changing right now to dartsass\
 embedded dartsass though is still in beta and expected to release stable in Q1 2021, so to get this to work right now you need to install a dartsass binary and add it to your $PATH variable (more info on this [here](https://gohugo.io/hugo-pipes/scss-sass/#options)) - or don't rely on the `@use-syntax` yet
 
+* edit: if you go this route, the deployment to GitLab Pages of course will fail, because dart-sass-embedded is not on the machine, little patience is required here until hugo will have this built-in, I updated the CI to use the latest hugo release at least
+
 
 ## Prerequisites
 
