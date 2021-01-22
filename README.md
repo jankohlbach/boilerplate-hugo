@@ -45,7 +45,7 @@ what you need to have installed to run this:
 
    `npx netlify-cms-proxy-server`
 
-* start parcel to bundle the backend located in `/netlify-cms`
+* start parcel to bundle the backend located in `/netlify-cms`:
 
    `npm run backend-dev`
 
